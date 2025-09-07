@@ -33,7 +33,7 @@
     <!-- Navigation Bar -->
     <nav class="fixed top-0 left-0 right-0 z-50 p-4 bg-gray-900 bg-opacity-70 backdrop-blur-md shadow-lg">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-white tracking-wide">Shivakumar gp</a>
+            <a href="#" class="text-xl font-bold text-white tracking-wide">Shivakumara GP</a>
             <div class="flex space-x-4 sm:space-x-6">
                 <button data-page="home" class="nav-button py-2 px-3 sm:px-4 rounded-full transition-colors duration-300 font-semibold text-gray-300 hover:text-white hover:bg-gray-800">Home</button>
                 <button data-page="portfolio" class="nav-button py-2 px-3 sm:px-4 rounded-full transition-colors duration-300 font-semibold text-gray-300 hover:text-white hover:bg-gray-800">Portfolio</button>
@@ -46,11 +46,11 @@
     <!-- Main Content Area -->
     <main class="pt-24 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div class="flex justify-center mb-6">
+              
                 <span class="animate-bounce text-teal-400 text-lg sm:text-xl font-semibold bg-gray-800 bg-opacity-80 px-4 py-2 rounded-full shadow">
-                    ↓ Click on View And My Work Scroll down to see work ↓
+                    ↓ Click on View My Work button and Scroll down to see work ↓
                 </span>
-            </div>
+            
         <!-- Home Page Section -->
         <div id="home" class="page-content active flex flex-col items-center justify-center min-h-screen text-center p-4 sm:p-8 text-white">
             <div class="bg-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl shadow-lg w-full max-w-2xl md:max-w-4xl transition-all duration-500 hover:scale-105">
@@ -71,7 +71,7 @@
         <!-- Portfolio Section -->
         <div id="portfolio" class="page-content min-h-screen p-4 sm:p-8 text-white">
             <div class="text-center mb-8 sm:mb-12">
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-200 mb-4">
+                <h2 id="work-section" class="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-200 mb-4">
                     My Works and project
                 </h2>
                 <p class="text-base sm:text-lg text-gray-400">
@@ -117,7 +117,7 @@
             </div>
             
             <!-- Graphic Design - Instagram Link -->
-
+            <br>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-center items-center">
                 <a href="https://www.instagram.com/sattvamrestaurant?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center p-4 bg-gray-800 rounded-2xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-2xl border-2 border-pink-500">
                     <img src="./images/satvaimg.png" alt="Instagram Profile Photo" class="w-24 h-24 rounded-full mb-4 object-cover border-4 border-gray-700">
@@ -199,47 +199,75 @@
     </footer>
 
     <!-- JavaScript for page navigation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const navButtons = document.querySelectorAll('.nav-button');
-            const pages = document.querySelectorAll('.page-content');
-            const currentYearSpan = document.getElementById('current-year');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navButtons = document.querySelectorAll('.nav-button');
+        const pages = document.querySelectorAll('.page-content');
+        const currentYearSpan = document.getElementById('current-year');
 
-            // Set the current year in the footer
-            currentYearSpan.textContent = new Date().getFullYear();
+        // Set the current year in the footer
+        currentYearSpan.textContent = new Date().getFullYear();
 
-            // Function to show a specific page
-            const showPage = (pageId) => {
-                pages.forEach(page => {
-                    if (page.id === pageId) {
-                        page.classList.add('active');
-                    } else {
-                        page.classList.remove('active');
-                    }
-                });
-                navButtons.forEach(button => {
-                    if (button.dataset.page === pageId) {
-                        button.classList.add('bg-gradient-to-r', 'from-teal-500', 'to-blue-600', 'text-white', 'shadow-md');
-                        button.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-gray-800');
-                    } else {
-                        button.classList.remove('bg-gradient-to-r', 'from-teal-500', 'to-blue-600', 'text-white', 'shadow-md');
-                        button.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-gray-800');
-                    }
-                });
-            };
-
-            // Add click event listeners to navigation buttons
-            navButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const pageId = button.dataset.page;
-                    showPage(pageId);
-                });
+        // Function to show a specific page
+        const showPage = (pageId) => {
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
             });
+            navButtons.forEach(button => {
+                if (button.dataset.page === pageId) {
+                    button.classList.add('bg-gradient-to-r', 'from-teal-500', 'to-blue-600', 'text-white', 'shadow-md');
+                    button.classList.remove('text-gray-300', 'hover:text-white', 'hover:bg-gray-800');
+                } else {
+                    button.classList.remove('bg-gradient-to-r', 'from-teal-500', 'to-blue-600', 'text-white', 'shadow-md');
+                    button.classList.add('text-gray-300', 'hover:text-white', 'hover:bg-gray-800');
+                }
+            });
+        };
 
-            // Show the initial page
-            showPage('home');
+        // Add click event listeners to navigation buttons
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const pageId = button.dataset.page;
+                showPage(pageId);
+
+                // Scroll to work section if "View My Work" button is clicked
+                if (pageId === 'portfolio' && button.textContent.trim() === 'View My Work') {
+                    setTimeout(() => {
+                        const workSection = document.getElementById('work-section');
+                        if (workSection) {
+                            workSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+                // Scroll to About section heading if About button is clicked
+                else if (pageId === 'about') {
+                    setTimeout(() => {
+                        const aboutSection = document.querySelector('#about h2');
+                        if (aboutSection) {
+                            aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+                // Scroll to Contact section heading if Contact button is clicked
+                else if (pageId === 'contact') {
+                    setTimeout(() => {
+                        const contactSection = document.querySelector('#contact h2');
+                        if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+            });
         });
-    </script>
+
+        // Show the initial page
+        showPage('home');
+    });
+</script>
 </body>
 </html>
 
